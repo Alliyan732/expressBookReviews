@@ -24,13 +24,12 @@ public_users.post("/register", (req, res) => {
 public_users.get('/', function (req, res) {
   // Write your code here
   const getBookList = new Promise(function(resolve, reject) {
-    const books_string = JSON.stringify(books);
-    resolve(books_string);
+    resolve(books);
   });
 
   getBookList
-    .then(function(books_string) {
-      return res.status(200).send(books_string);
+    .then(function(books) {
+      return res.status(200).send(books);
     })
     .catch(function(error) {
       return res.status(500).send('Error retrieving book list');
